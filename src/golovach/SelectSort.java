@@ -9,26 +9,28 @@ public class SelectSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {55,222,10,13,24,5,377,90};
-
+        int[] arr = {55,222,10,2};
         System.out.println(Arrays.toString(arr));
 
         int min = chooseMinimum(arr,0);
-
         System.out.println(min);
 
-        selectSort(arr);
+        int minIndex = findIndex(arr,min);
+        System.out.println(minIndex);
 
+        selectSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
+    // Sortirovka vuborkami
+
     private static void selectSort(int[] arr){
         for(int barrier = 0; barrier < arr.length; barrier++){
-            int tmp = arr[barrier];
             int min = chooseMinimum(arr, barrier);
-            int minIndex = Arrays.asList(arr).indexOf(min);
+            int minIndex = findIndex(arr, min);
+            int tmp = arr[barrier];
             arr[barrier] = min;
-            arr[minIndex + 1] = tmp;
+            arr[minIndex] = tmp;
         }
     }
 
@@ -42,7 +44,17 @@ public class SelectSort {
             index++;
         }
         return  min ;
+        }
 
+    private static int findIndex(int[] arr, int min){
+        int minIndex = 0;
+        for(int i = 0; i < arr.length - 1; i++){
+            if (arr[i] == min){
+                minIndex = i;
+                break;
+            }
+        }
+        return minIndex;
     }
 }
 
