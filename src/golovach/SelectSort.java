@@ -9,7 +9,7 @@ public class SelectSort {
 
     public static void main(String[] args) {
 
-        int[] arr = {55,222,10,2};
+        int[] arr = {};
         System.out.println(Arrays.toString(arr));
 
         int min = chooseMinimum(arr,0);
@@ -48,7 +48,7 @@ public class SelectSort {
 
     private static int findIndex(int[] arr, int min){
         int minIndex = 0;
-        for(int i = 0; i < arr.length - 1; i++){
+        for(int i = 0; i < arr.length; i++){
             if (arr[i] == min){
                 minIndex = i;
                 break;
