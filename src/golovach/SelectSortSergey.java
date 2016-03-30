@@ -6,7 +6,7 @@ public class SelectSortSergey {
 
   public static void main(String[] args) {
 
-    int[] arr = {55,222,10,2,5,0,1,555,89,67,0,0};
+    int[] arr = {};
     System.out.println(Arrays.toString(arr));
 
     SelectSortSergey sort = new SelectSortSergey();
@@ -19,7 +19,7 @@ public class SelectSortSergey {
   private void selectSort(int[] arr){
     for(int barrier = 0; barrier < arr.length; barrier++){
       int min = chooseMinimum(arr, barrier);
-      int minIndex = findIndex(arr, min);
+      int minIndex = findIndex(arr, min, barrier);
       int tmp = arr[barrier];
       arr[barrier] = min;
       arr[minIndex] = tmp;
@@ -38,9 +38,9 @@ public class SelectSortSergey {
     return  min ;
   }
 
-  private int findIndex(int[] arr, int min){
+  private int findIndex(int[] arr, int min, int barrier){
     int minIndex = 0;
-    for(int i = 0; i < arr.length; i++){
+    for(int i = barrier; i < arr.length; i++){
       if (arr[i] == min){
         minIndex = i;
         break;
